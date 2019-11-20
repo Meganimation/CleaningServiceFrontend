@@ -100,10 +100,22 @@ export default class Facebook extends Component {
 
         } else {
             fbContent = ( 
+              <>
+                <br/><br/>  <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/> <br/><br/>  <br/><br/>
+                <br/><br/>
+           
             <div className = "myMainBox" >
                 
 
-            <br/><br/>
+            <br/>
+            <br/>
+        
         
             
             <FacebookLogin
@@ -123,6 +135,7 @@ export default class Facebook extends Component {
           
 
             </div>
+            </>
             );
 
 
@@ -134,7 +147,9 @@ export default class Facebook extends Component {
 
 
         return (
+
             <div >
+                
      
            {fbContent}
         
