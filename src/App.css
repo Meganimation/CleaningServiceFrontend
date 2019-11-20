@@ -190,20 +190,22 @@ a.yellow:hover {
 
 
 .myMainBox {
-  border:7px solid #ffffff;
+  border:7% solid #ffffff;
   background-color:#7c93c01c;
-  padding:35px 66px;
-  font-size: 30px;
+  padding:5% 6%;
+  font-size: 110%;
   color: #314884;
   margin-left: 20%;
   margin-right: 20%;
+  position: center;
 }
 
 .myMainBoxx {
   border:7px solid #ffffff;
 
 
-
+  margin-left: 20%;
+  margin-right: 20%;
   background-color:#7c93c01c;
   padding:35px 66px;
   font-size: 30px;
