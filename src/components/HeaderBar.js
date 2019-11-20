@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
+
 export default class HeaderBar extends Component {
 
+  logout() {
+    localStorage.clear();
+    window.location.href = '/';
+}
 
     openNav=(e)=> {
         console.log('clicked')
@@ -40,9 +45,10 @@ export default class HeaderBar extends Component {
                 margin: 'auto',
                 padding: '20px'
             }}>
-           
-              <a href="#" className="openButton" onClick={this.openNav}>&#9776;codecanyon</a>
      
+     <img  style={{width: '100%', height: '50%', marginTop: '-13%'}}src="logo.jpg" alt="logo"/>
+
+              <li><a href="#" class="round green" onClick={this.openNav}>≣<span class="round"></span></a></li>
 
 <div id="main">
 
@@ -50,7 +56,7 @@ export default class HeaderBar extends Component {
 
 </div>
                     
-                
+{/*                 
                  <nav>
   <ul>
     <li>
@@ -68,7 +74,7 @@ export default class HeaderBar extends Component {
       <a href="#"></a>
     </li>
   </ul>
-</nav>   
+</nav>    */}
 
 
 
@@ -85,20 +91,26 @@ export default class HeaderBar extends Component {
  <br/>
 
 
-
-
+ 
+  <Link exact to="/home">  Home </Link>
+  <br/>
+  <br/>
   <Link 
-        to={{ pathname: '/chatlog', 
-        state: { sender: this.props.id} }}> Chatlog </Link> 
+        to={{ pathname: '/about', 
+        state: { sender: this.props.id} }}> About</Link> 
+  <br/>
+  <br/>
+  <Link 
+        to={{ pathname: '/contact' }}> Contact</Link>
+
   <br/>
   <br/>
   <Link 
         to={{ pathname: '/settings' }}> Settings </Link>
   <br/>
   <br/>
-  <Link exact to="/projects">  Projects </Link>
-  <br/>
-  <br/>
+
+  <Link exact to="/Logout">  Logout </Link>
 </div>
 
 

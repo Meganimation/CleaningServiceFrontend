@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Chats from './Chats'
 import { Link } from 'react-router-dom';
+import HeaderBar from './HeaderBar';
 import BotChatContainer from './BotChatContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
-export default class ChatLog extends Component {
+export default class About extends Component {
 
 
 
@@ -22,13 +23,6 @@ state={
         .then( data => this.setState({ messages: data,
             displayedMessages: data}))
     }
-
-
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/senders`)
-    //     .then( res => res.json())
-    //     .then( data => this.setState({ sender: data}))
-    // }
 
 
     deleteMsg=(event)=>{
@@ -68,15 +62,33 @@ state={
 
 
     allMessages=()=>{
+
+        if (this.state.displayedMessages.length < 1) {
+            return ('There are no messages here!')
+        }
         if (window.localStorage.id === undefined) {
             return ('You must log in to view chat logs!'  )
             }
-        if (window.localStorage.id !== undefined)  {
+        if (window.localStorage.id !== undefined  && this.state.displayedMessages.length > 1)  {
                 return this.state.displayedMessages.map((message) => {     
                 return <Chats key={message.id} deleteMsg={this.deleteMsg} message={message} deletedMessages={this.state.deletedMessages} userID={window.localStorage.id}/>}
             )}}
 
+
+
+            sortThings = (event) => {
+     
+
          
+                if (event.target.innerText ==  "Sort By: Oldest") {
+                    
+               return event.target.innerText = "Sort By: Newest"
+                }
+                if (event.target.innerText ==  "Sort By: Newest") {
+                 return   event.target.innerText = "Sort By: Oldest"
+                }
+
+            }
         
                 
 
@@ -88,37 +100,36 @@ state={
 
         
         return (
-            this.state.deleted === true ?  <p>    
-            <Link 
-            to={{ pathname: '/home', 
-            state: { deleted: this.state.deleted} }}>    
-            <button  className="myOtherHomeButton"> Home </button> </Link>  
-            
-            <h3> all messages have been deleted.</h3> </p>
-            
-            :
-            
-            <div>
+        
 
-
-
-<h2> Your Chatlog </h2>
-
-<div className='myBox'>
-
-    <br/>
-    <Link exact to="/home" > 
-    <button onClick={this.deleteDivs} className="myOtherHomeButton"> Home </button>
-    </Link>
+<div >
+<HeaderBar />
     <br/>
 
-                <button onClick={this.deleteAll}> Delete Convo </button>
+
+  
+        
+            
+         <div className ='myMainBoxx' >
+         <div className ='fade-in' >
+         <h1> About </h1>
+         <br/>
                 <br/>
                 <br/>
-                {this.allMessages()}
-                {/* //maybe do one bot message, and one user message? */}
-            </div>
-            </div>
+                <br/>
+            <div> Here is the about section. Let me know what kind of substance you would like adding here, such as quotes, images, etc.</div>
+       
+   
+
+            <br/>
+            <br/>
+            <br/>
+<Link exact to="/home" > 
+<button onClick={this.deleteDivs} className="myOtherHomeButton"> Home </button>
+</Link>
+</div>
+</div>
+</div>
         )
     }
 
