@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import HeaderBar from './HeaderBar';
-import BotChatContainer from './BotChatContainer';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import {
+    Card, CardTitle, Container, Row, Col, Form, Input, Button, Navbar, Nav,
+    NavbarBrand, NavLink, NavItem, UncontrolledDropdown,
+    DropdownToggle, DropdownMenu, DropdownItem, ButtonDropdown 
+  } from 'reactstrap';
+
 
 
 export default class About extends Component {
@@ -14,17 +15,15 @@ export default class About extends Component {
     render() {      
         return (    
             <Container>
-            <div>
-            <HeaderBar />
-            <br/>
-            <div className ='myMainBoxx' >
-            <div className ='fade-in' >
-            <h1> About </h1>
-            <br/>
-                <br/>
-                <br/>
-                <br/>
-            <div> Here is the about section. Let me know what kind of substance you would like adding here, such as quotes, images, etc.</div>
+                    <div>
+            <HeaderBar/>
+            <Card>
+                    <br/>
+            <div className ='fade-in'>
+            <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">  About   </CardTitle>
+                    <br/>
+                    <br/>
+                <Col> Here is the about section. Let me know what kind of substance you would like adding here, such as quotes, images, etc.  </Col>
             <br/>
             <br/>
             <br/>
@@ -32,9 +31,12 @@ export default class About extends Component {
 <Button> Home </Button>
 </Link>
 </div>
-</div>
+<br/>
+<br/>
+</Card>
 </div>
 </Container>
+
         )
     }
 

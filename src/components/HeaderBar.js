@@ -33,17 +33,18 @@ export default class HeaderBar extends Component {
     render() {
         return (
         <Container>
+       
           <div style={{
                 width: '900px',
                 margin: 'auto',
                 padding: '20px'
             }}>
-
+              
               <img  style={{width: '100%', height: '50%', marginTop: '-13%'}}src="logo.jpg" alt="logo"/>
               <li><a href="#" class="round green" onClick={this.openNav}>≣<span class="round"></span></a></li>
               <div id="main">
           </div>
-              
+                    
 <div id="mySidebar" className="sidebar">
   <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
   <p>   <br></br>  {this.props.name}    </p>

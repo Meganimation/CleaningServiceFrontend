@@ -103,13 +103,7 @@ export default class Facebook extends Component {
             </>
             
             );
-
-
-
-
-
         }
-
 
 
         return (

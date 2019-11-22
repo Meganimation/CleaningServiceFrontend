@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import ls from 'local-storage';
 import HeaderBar from './HeaderBar';
 import {
-    Container, Row, Col, Form, Input, Button, Navbar, Nav,
+    Card, CardTitle, Container, Row, Col, Form, Input, Button, Navbar, Nav,
     NavbarBrand, NavLink, NavItem, UncontrolledDropdown,
     DropdownToggle, DropdownMenu, DropdownItem, ButtonDropdown 
   } from 'reactstrap';
 
-
+  
 export default class Settings extends Component {
+
+
 
 updateName=()=>{
     var updateName = prompt('Please enter the new name', 'name')
@@ -18,7 +20,7 @@ updateName=()=>{
     return txt
     } 
 
-        else {
+    else {
            fetch(`http://localhost:3000/senders/${window.localStorage.id}`, {
                method: 'PATCH', 
                headers: {
@@ -45,12 +47,12 @@ updateName=()=>{
 updateEmail=()=>{
 
     var updateEmail = prompt('Please enter the new email', 'email')
-
-
     if (updateEmail == null || updateEmail == "")  {
      const  txt = ''
      return txt
      } 
+
+
 
      if (updateEmail.includes('@'))  {
       fetch(`http://localhost:3000/senders/${window.localStorage.id}`, {
@@ -79,23 +81,22 @@ updateEmail=()=>{
         window.location.href = '/';
     }
 
-
-
     render() {
+
         return (
         <Container>
-        <div>
-                <HeaderBar/>
+            <HeaderBar/>
+            <Card>
                 <div className ="fade-in">
-        <br/>
-        <br/>
-                <img src="https://img.icons8.com/cotton/2x/settings--v1.png" />
-                <h2>  settings </h2>   
                 <br/>
-    <br/>      
-    <br/>  <h3>name:   {window.localStorage.name}      </h3> 
+                <br/>
+                <img src="https://img.icons8.com/cotton/2x/settings--v1.png" />
+                <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">  Settings   </CardTitle>
+                <br/>
+                <br/>      
+    <Col>  <br/>  <h3>name:   {window.localStorage.name}      </h3> </Col>
     <Button onClick ={this.updateName}>change</Button> <br/>
-    <br/>  <h3> email:   {window.localStorage.email}   </h3>  
+    <Col> <br/>  <h3> email:   {window.localStorage.email}   </h3>  </Col>
     <Button onClick ={this.updateEmail}>change</Button> <br/>
 <br/>
 <br/>
@@ -108,15 +109,11 @@ updateEmail=()=>{
     <Button >go home </Button>
     </Link>
             </div>
-            </div>
             <div>   
-            </div>
+            </div> <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-          
+            </Card>
             </Container>
         )
     }
