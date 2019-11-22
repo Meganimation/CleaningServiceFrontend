@@ -5,6 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {store} from "./chat";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import {
+    Container, Row, Col, Form, Input, Button, Navbar, Nav,
+    NavbarBrand, NavLink, NavItem, UncontrolledDropdown,
+    DropdownToggle, DropdownMenu, DropdownItem, ButtonDropdown 
+  } from 'reactstrap';
 
 ReactDOM.render(
     <Provider store={store}>
