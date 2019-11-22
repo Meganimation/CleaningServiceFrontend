@@ -2,22 +2,22 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import ls from 'local-storage';
 import HeaderBar from './HeaderBar';
+import {
+    Container, Row, Col, Form, Input, Button, Navbar, Nav,
+    NavbarBrand, NavLink, NavItem, UncontrolledDropdown,
+    DropdownToggle, DropdownMenu, DropdownItem, ButtonDropdown 
+  } from 'reactstrap';
+
 
 export default class Settings extends Component {
 
-
-
 updateName=()=>{
-
     var updateName = prompt('Please enter the new name', 'name')
-
-
     if (updateName == null || updateName == "")  {
-     const  txt = ''
-     return txt
-     } 
+    const  txt = ''
+    return txt
+    } 
 
-     
         else {
            fetch(`http://localhost:3000/senders/${window.localStorage.id}`, {
                method: 'PATCH', 
@@ -35,14 +35,10 @@ updateName=()=>{
        }
 
 
-       const   txt = `Your new name is now ${updateName}.`;
-       window.location.reload();
-
-       return alert(txt)
-
-
-         
-     }
+    const   txt = `Your new name is now ${updateName}.`;
+    window.location.reload();
+    return alert(txt)
+}
 
 
 
@@ -70,23 +66,15 @@ updateEmail=()=>{
            })
                .then(resp => resp.json()) 
                .then(ls.set('email', updateEmail))
-    
 
-       window.location.reload();
-       const   txt = `Your new email is now ${updateEmail}.`;
-       
-
-       return alert(txt) 
+    window.location.reload();
+    const   txt = `Your new email is now ${updateEmail}.`;
+    return alert(txt) 
+    }
+    else alert('you must enter a valid email!')
     }
 
-
-       else alert('you must enter a valid email!')
-
-
-         
-     }
-
-     logout() {
+    logout() {
         localStorage.clear();
         window.location.href = '/';
     }
@@ -95,54 +83,41 @@ updateEmail=()=>{
 
     render() {
         return (
-            <div>
-                
+        <Container>
+        <div>
                 <HeaderBar/>
                 <div className ="fade-in">
-               
-                <br/>
         <br/>
         <br/>
-        <br/>
-        <br/>
-  
-      
-        
-                <div className="myMainBoxx">
-           
-    
                 <img src="https://img.icons8.com/cotton/2x/settings--v1.png" />
                 <h2>  settings </h2>   
                 <br/>
-<br/>
-<br/>
-<br/>      
-<br/>  <h3>name:   {window.localStorage.name} </h3> <br/>
-  <button className="myOtherHomeButton" onClick ={this.updateName}>change</button> <br/>
-<br/>  <h3> email:   {window.localStorage.email}   </h3> <br/> 
- <button className="myOtherHomeButton"  onClick ={this.updateEmail}>change</button> <br/>
-<br/>
+    <br/>      
+    <br/>  <h3>name:   {window.localStorage.name}      </h3> 
+    <Button onClick ={this.updateName}>change</Button> <br/>
+    <br/>  <h3> email:   {window.localStorage.email}   </h3>  
+    <Button onClick ={this.updateEmail}>change</Button> <br/>
 <br/>
 <br/>
 <br/>
 <br/>
+    <Button onClick={this.logout}> log out </Button>
 <br/>
-<button className="myOtherHomeButton" onClick={this.logout}> log out </button>
 <br/>
-<br/>
-
-
     <Link exact to="/home"> 
-    <button  className="myOtherHomeButton">go home </button>
+    <Button >go home </Button>
     </Link>
             </div>
-            </div><div></div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             </div>
+            <div>   
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+          
+            </Container>
         )
     }
 }

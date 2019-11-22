@@ -11,13 +11,7 @@ import Popper from 'popper.js';
 
 export default class About extends Component {
 
-        
-                
-
-    render() {
-
-
-        
+    render() {      
         return (    
             <Container>
             <div>
